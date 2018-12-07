@@ -1,0 +1,40 @@
+{
+  "name": "twii",
+  "version": "0.1.0",
+  "description": "Twitter SDK for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LitoMore/twii.git"
+  },
+  "keywords": [
+    "twitter"
+  ],
+  "author": "LitoMore",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LitoMore/twii/issues"
+  },
+  "homepage": "https://github.com/LitoMore/twii#readme",
+  "dependencies": {
+    "got": "^9.3.2",
+    "oauth-1.0a": "^2.2.5",
+    "query-string": "^6.2.0"
+  },
+  "devDependencies": {
+    "xo": "^0.23.0"
+  },
+  "xo": {
+    "rules": {
+      "camelcase": [
+        2,
+        {
+          "properties": "never"
+        }
+      ]
+    }
+  }
+}
