@@ -22,10 +22,11 @@ class Twii {
 		this.baseUrl = baseUrl;
 	}
 
-	getOAuthHeader(url, method, data) {
+	getAuthorization(url, method, data) {
+		console.log(this);
 		const o = oauth({
 			consumer: {key: this.consumerKey, secret: this.consumerSecret},
-			signature_method: 'HMAC_SHA1',
+			signature_method: 'HMAC-SHA1',
 			hash_function: (baseString, key) => {
 				console.log(baseString);
 				return crypto.createHmac('sha1', key).update(baseString).digest('base64');
@@ -36,16 +37,34 @@ class Twii {
 		if (data) {
 			opt.data = data;
 		}
-		console.log(o.toHeader(o.authorize(opt, token)));
-		return o.toHeader(o.authorize(opt, token));
+		const {Authorization} = o.toHeader(o.authorize(opt, token));
+		return Authorization;
 	}
 
 	get(uri, params) {
-		console.log(this);
 		const query = queryString.stringify(params);
 		const url = `${this.baseUrl}${uri}.json${query ? `?${query}` : ''}`;
-		console.log(url);
-		return got.get(url, {headers: this.getOAuthHeader(url, 'GET'), json: true});
+		const Authorization = this.getAuthorization(url, 'GET');
+		return got.get(url, {
+			headers: {
+				Authorization,
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			json: true
+		});
+	}
+
+	post(uri, params) {
+		const url = `${this.baseUrl}${uri}.json`;
+		const Authorization = this.getAuthorization(url, 'POST', params);
+		console.log(Authorization);
+		return got.post(url, {
+			headers: {
+				Authorization,
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			body: queryString.stringify(params)
+		});
 	}
 }
 
