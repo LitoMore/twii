@@ -50,6 +50,7 @@ t.post(uri, params);
 
 ## Related
 
+- [twe](https://github.com/LitoMore/twe) - CLI for Twitter
 - [got](https://github.com/sindresorhus/got) - Simplified HTTP requests
 
 ## License
