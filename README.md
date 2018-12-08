@@ -6,7 +6,7 @@
 [![](https://img.shields.io/npm/l/twii.svg)](https://github.com/LitoMore/twii/blob/master/LICENSE)
 [![](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 
-Twitter SDK for Node.js
+Twitter SDK request with [Got](https://github.com/sindresorhus/got)
 
 ## Install
 
