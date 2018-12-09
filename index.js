@@ -23,12 +23,10 @@ class Twii {
 	}
 
 	getAuthorization(url, method, data) {
-		console.log(this);
 		const o = oauth({
 			consumer: {key: this.consumerKey, secret: this.consumerSecret},
 			signature_method: 'HMAC-SHA1',
 			hash_function: (baseString, key) => {
-				console.log(baseString);
 				return crypto.createHmac('sha1', key).update(baseString).digest('base64');
 			}
 		});
@@ -57,7 +55,6 @@ class Twii {
 	post(uri, params) {
 		const url = `${this.baseUrl}${uri}.json`;
 		const Authorization = this.getAuthorization(url, 'POST', params);
-		console.log(Authorization);
 		return got.post(url, {
 			headers: {
 				Authorization,
