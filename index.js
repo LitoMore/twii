@@ -35,6 +35,7 @@ class Twii {
 		if (data) {
 			opt.data = data;
 		}
+
 		const {Authorization} = o.toHeader(o.authorize(opt, token));
 		return Authorization;
 	}
