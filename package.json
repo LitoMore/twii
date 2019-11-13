@@ -22,7 +22,7 @@
   "dependencies": {
     "got": "^9.3.2",
     "oauth-1.0a": "^2.2.5",
-    "query-string": "^6.2.0"
+    "query-string": "^6.9.0"
   },
   "devDependencies": {
     "xo": "^0.25.3"
