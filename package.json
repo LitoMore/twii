@@ -25,7 +25,7 @@
     "query-string": "^6.2.0"
   },
   "devDependencies": {
-    "xo": "^0.25.3"
+    "xo": "^0.26.0"
   },
   "xo": {
     "rules": {
