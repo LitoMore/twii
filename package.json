@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/LitoMore/twii#readme",
   "dependencies": {
-    "got": "^10.0.3",
+    "got": "^11.0.0",
     "oauth-1.0a": "^2.2.5",
     "query-string": "^6.2.0"
   },
